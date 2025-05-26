@@ -61,9 +61,7 @@ I started building this tiny project because I was wondering how Safari always u
 
 2. Then type in a search query like:
 
-   ```bash
-   Enter your search query: python language
-   ```
+   `Enter your search query: python language`
 
 3. See the results
 
