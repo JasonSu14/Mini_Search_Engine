@@ -14,9 +14,11 @@ I started building this tiny project because I was wondering how Safari always u
 
 ## What Does Each File Do?
 
-`crawler.py`: This file handles downloading web pages and extracting readable text from HTML. In a real search engine, crawling is the first step: take Google as example, Googlebot (the crawler) is used to visit billions of pages to gather content.
+`crawler.py`: This file handles downloading web pages (through HTTP GET request) and extracting readable text from HTML. In a real search engine, crawling is the first step: take Google as example, the crawlers (e.g. Googlebot) are used to visit billions of pages to gather content.
 
-`inderer.py`: This file builds the index: the core data structure that enables fast and relevant searches. We use TF-IDF (Term Frequency-Inverse Document Frequency) to rank the results.
+`indexer.py`: This file builds the index: the core data structure that enables fast and relevant searches. We use TF-IDF (Term Frequency-Inverse Document Frequency) to rank the results on how relevant it is to the search term. We do this because search engines don't scan raw text at query time as that's too slow. Instead, we pre-process documents into an index so we can quickly match queries to relevant content.
+
+`main.py`: This is the script that controls the entire workflow of the search engine as well as provide the CLI for querying. It contains a small dictionary of URLs (this is our "web") and uses the crawler to get the content and add them to the index.
 
 ## First-time Setup Guide (Linux / MacOS)
 
@@ -61,7 +63,7 @@ I started building this tiny project because I was wondering how Safari always u
 
 2. Then type in a search query like:
 
-   `Enter your search query: python language`
+   `Enter your search query (or 'exit'): python language`
 
 3. See the results
 
